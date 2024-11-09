@@ -1,0 +1,74 @@
+/* تنسيق الكارد */
+.styled-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.styled-card:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* تنسيق صورة الكارد */
+.card-img {
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* تنسيق العنوان والسعر */
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.card-price {
+  font-size: 1.2rem;
+  color: #f57c00;
+}
+
+/* تنسيق زر "Show Details" */
+.card-button {
+  margin-top: 10px;
+  padding: 8px 0;
+  text-align: center;
+}
+
+/* تنسيق التقييم (النجوم) */
+.rating {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+/* تنسيق زر الإعجاب */
+.like-button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.like-button svg {
+  width: 24px;
+  height: 24px;
+  transition: fill 0.3s ease;
+}
+
+/* تنسيق النص الخاص بعدد الإعجابات */
+.like-count {
+  font-size: 1rem;
+  margin-left: 8px;
+}
+
+.like-count.liked {
+  color: red;
+}
+
+/* تنسيق زر "إضافة إلى العربة" */
+button {
+  margin-top: 16px;
+  padding: 10px;
+}

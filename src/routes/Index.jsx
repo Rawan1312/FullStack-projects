@@ -3,13 +3,16 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "../pages/Home";
 import Layout from "../layouts/Layout";
 import About from "../pages/About";
+
 import Products from "../components/products/Products";
 import ProductDetails from "../pages/ProductDetails";
+import Cart from "../components/Cart/Cart";
 
 const Index = () => {
   const router = createBrowserRouter([
     {
       path: "/",
+      // errorElement:
       element: <Layout />,
       children: [
         {
@@ -27,6 +30,10 @@ const Index = () => {
         {
           path: "/products/:id",
           element: <ProductDetails />,
+        },
+        {
+          path: "/Cart",
+          element: <Cart />,
         },
       ],
     },

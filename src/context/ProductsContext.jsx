@@ -1,42 +1,57 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { useState, useEffect, createContext } from "react";
 
 import PropTypes from "prop-types";
 import { getAllProducts } from "../services/productService";
 
+// إنشاء الـ Context للمنتجات
 export const ProductContext = createContext();
 
+// توفير المنتجات في الـ Context لجميع المكونات
 export const ProductProvider = ({ children }) => {
-  const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [searchValue, setSearchValue] = useState("");
-  const [pageNumber, setPageNumber] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
-  const [sortOrder, setSortOrder] = useState("asc");
-  const [totalPages, setTotalPages] = useState(1);
-  const [sortBy, setSortBy] = useState("name");
+  const [products, setProducts] = useState([]); // لتخزين قائمة المنتجات
+  const [isLoading, setIsLoading] = useState(false); // لتتبع حالة التحميل
+  const [error, setError] = useState(null); // لتخزين الأخطاء إذا حدثت
+  const [searchValue, setSearchValue] = useState(""); // لتخزين قيمة البحث
+  const [pageNumber, setPageNumber] = useState(1); // لتخزين رقم الصفحة
+  const [pageSize, setPageSize] = useState(5); // لتخزين حجم الصفحة
+  const [sortBy, setSortBy] = useState("name"); // لتحديد الحقل الذي سيتم التصفية حسبه (افتراضي هو "name")
+  const [sortOrder, setSortOrder] = useState("asc"); // لتحديد ترتيب التصنيف (افتراضي هو "asc")
+  const [totalPages, setTotalPages] = useState(1); // لتخزين إجمالي عدد الصفحات
 
-  const fetchData = async () => {
-    setIsLoading(true);
+  // دالة لجلب المنتجات من الـ API بناءً على القيم المحددة
+  const fetchData = async (
+    searchValue = "",
+    pageNumber = 1,
+    pageSize = 5,
+    sortBy = "name",
+    sortOrder = "asc"
+  ) => {
+    setIsLoading(true); // تعيين حالة التحميل إلى true
     try {
+      // استدعاء الخدمة للحصول على المنتجات
       const response = await getAllProducts(
+        searchValue,
         pageNumber,
         pageSize,
-        sortOrder,
-        searchValue
+        sortBy,
+        sortOrder
       );
+
+      // تحديث قائمة المنتجات وعدد الصفحات
       setProducts(response.product.items);
       setTotalPages(response.product.totalPages);
     } catch (error) {
+      // في حالة حدوث خطأ، يتم تخزين الرسالة في حالة الأخطاء
       setError(error.message);
     } finally {
-      setIsLoading(false);
+      setIsLoading(false); // تعيين حالة التحميل إلى false بعد الانتهاء
     }
   };
 
+  // استدعاء دالة fetchData عند تحديث القيم
   useEffect(() => {
-    fetchData();
-  }, [searchValue, pageNumber, pageSize, sortOrder]);
+    fetchData(searchValue, pageNumber, pageSize, sortBy, sortOrder);
+  }, [searchValue, pageNumber, pageSize, sortBy, sortOrder]);
 
   return (
     <ProductContext.Provider
@@ -50,10 +65,10 @@ export const ProductProvider = ({ children }) => {
         setPageNumber,
         pageSize,
         setPageSize,
+        sortBy, // إضافة sortBy هنا
+        setSortBy, // إضافة setSortBy هنا
         sortOrder,
         setSortOrder,
-        sortBy,
-        setSortBy,
         totalPages,
       }}
     >
@@ -62,71 +77,7 @@ export const ProductProvider = ({ children }) => {
   );
 };
 
+// تحديد نوع القيم التي سيتم تمريرها للـ Provider
 ProductProvider.propTypes = {
   children: PropTypes.node,
 };
-// // ProductProvider.js
-// import React, { createContext, useEffect, useState } from "react";
-// import PropTypes from "prop-types";
-// import { getAllProducts } from "../services/productService";
-
-// export const ProductContext = createContext();
-
-// export const ProductProvider = ({ children }) => {
-//   const [products, setProducts] = useState([]);
-//   const [isLoading, setIsLoading] = useState(false);
-//   const [error, setError] = useState(null);
-//   const [searchValue, setSearchValue] = useState("");
-//   const [pageNumber, setPageNumber] = useState(1);
-//   const [pageSize, setPageSize] = useState(10);
-//   const [totalPages, setTotalPages] = useState(1);
-//   const [sortOrder, setSortOrder] = useState("asc");
-
-//   const fetchData = async () => {
-//     setIsLoading(true);
-//     try {
-//       console.log("Fetching data with searchValue:", searchValue);
-//       const response = await getAllProducts(
-//         pageNumber,
-//         pageSize,
-//         searchValue,
-//         sortOrder
-//       );
-//       setProducts(response.product.items);
-//       setTotalPages(response.data.totalPages);
-//     } catch (error) {
-//       setError(error.message);
-//     } finally {
-//       setIsLoading(false);
-//     }
-//   };
-
-//   useEffect(() => {
-//     fetchData();
-//   }, [searchValue, pageNumber, pageSize, sortOrder]);
-
-//   return (
-//     <ProductContext.Provider
-//       value={{
-//         products,
-//         isLoading,
-//         error,
-//         searchValue,
-//         setSearchValue,
-//         pageNumber,
-//         setPageNumber,
-//         pageSize,
-//         setPageSize,
-//         sortOrder,
-//         setSortOrder,
-//         totalPages,
-//       }}
-//     >
-//       {children}
-//     </ProductContext.Provider>
-//   );
-// };
-
-// ProductProvider.propTypes = {
-//   children: PropTypes.node,
-// };
