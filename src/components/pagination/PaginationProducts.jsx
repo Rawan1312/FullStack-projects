@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ProductContext } from "../context/ProductsContext";
+import { ProductContext } from "../../context/ProductsContext";
 import { Box, Pagination } from "@mui/material";
 
 const PaginationProducts = () => {

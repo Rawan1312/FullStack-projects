@@ -1,8 +1,7 @@
-
 import React, { useContext } from "react";
 
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-import { ProductContext } from "../context/ProductsContext";
+import { ProductContext } from "../../context/ProductsContext";
 
 const SortProduct = () => {
   const { sortOrder, setSortOrder, sortBy, setSortBy } =

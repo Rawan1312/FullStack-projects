@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
-import { Input } from "semantic-ui-react";
-import { ProductContext } from "../context/ProductsContext";
+import { Input } from "@mui/material";
+import { ProductContext } from "../../context/ProductsContext";
 
 const SearchInput = () => {
   const { setSearchValue } = useContext(ProductContext);

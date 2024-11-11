@@ -3,7 +3,13 @@ import React from "react";
 const About = () => {
   return (
     <div
-      style={{ padding: "20px", backgroundColor: "#BC9585", color: "#32474C" }}
+      style={{
+        padding: "2px",
+        backgroundColor: "#BC9585",
+        color: "#32474C",
+        height: "60vh",
+        width: "100vh",
+      }}
     >
       <h2>About Us</h2>
       <p>

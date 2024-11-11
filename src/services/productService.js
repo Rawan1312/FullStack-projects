@@ -1,49 +1,13 @@
-// import axios from "axios";
-
-// const baseURL = "http://localhost:5125/api/v1/products";
-
-// export const getAllProducts = async (
-//   searchValue = "",
-//   pageNumber = 1,
-//   pageSize = 5,
-//   sortOrder = "name_asc"
-// ) => {
-//   const params = new URLSearchParams();
-
-//   params.append("pageNumber", pageNumber);
-//   params.append("pageSize", pageSize);
-//   console.log("searchValue ", searchValue);
-
-//   if (searchValue) {
-//     console.log("search in service", searchValue);
-//     params.append("SearchTerm", searchValue);
-//   }
-
-//   if (sortOrder) {
-//     params.append("sortOrder", sortOrder);
-//   }
-
-//   const response = await axios.get(`${baseURL}?${params.toString()}`);
-//   console.log(`${baseURL}?${params.toString()}`);
-//   console.log(response.data);
-//   return response.data;
-// };
-
-// export const getProductById = async (id) => {
-//   console.log(`${baseURL}/${id}`);
-//   const response = await axios.get(`${baseURL}/${id}`);
-//   return response.data;
-// };
-
 import axios from "axios";
 
 const baseURL = "http://localhost:5125/api/v1/products";
+const categoryBaseURL = "http://localhost:5125/api/v1/category";
 
 // Function to get all products with optional search, pagination, and sorting
 export const getAllProducts = async (
   searchValue = "",
   pageNumber = 1,
-  pageSize = 5,
+  pageSize = 3,
   sortBy = "name",
   sortOrder = "asc"
 ) => {
@@ -100,5 +64,20 @@ export const getProductById = async (id) => {
   } catch (error) {
     console.error("Error fetching product by ID: ", error);
     throw error; // Rethrow or handle appropriately
+  }
+};
+
+// ** Get Category by ID **
+export const getCategoryById = async (id) => {
+  const requestUrl = `${categoryBaseURL}/${id}`;
+  console.log("Fetching category by ID:", requestUrl);
+
+  try {
+    const response = await axios.get(requestUrl);
+    return response.data; // إرجاع بيانات الفئة (Category)
+  } catch (error) {
+    const errorMessage = error.response?.data?.message || error.message;
+    console.error("Error fetching category by ID:", errorMessage);
+    throw new Error(`Failed to fetch category: ${errorMessage}`);
   }
 };

@@ -1,26 +1,27 @@
 import React, { useContext } from "react";
+import { ProductContext } from "../context/ProductsContext";
+import Product from "../components/products/Product"; 
+import { Grid2 } from "@mui/material"; 
 
-import Product from "./Product";
-import { ProductContext } from "../../context/ProductsContext";
-import { Grid2, Typography } from "@mui/material";
+const ProductList = () => {
 
-const Products = () => {
   const { products, isLoading, error } = useContext(ProductContext);
 
   if (isLoading) {
-    return <Typography variant="h4">Loading Products...</Typography>;
+    return <h3>Loading Products...</h3>;
   }
 
   if (error) {
-    return <Typography variant="h4">Error: {error}</Typography>;
+    return <h3>Error: {error}</h3>;
   }
 
   return (
     <div>
+      <h2>Product List</h2>
       <Grid2 container spacing={3}>
         {products.map((product) => (
           <Grid2 item xs={12} sm={6} md={4} key={product.id}>
-            <Product product={product} />
+            <Product product={product} />{" "}
           </Grid2>
         ))}
       </Grid2>
@@ -28,4 +29,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default ProductList;

@@ -13,7 +13,7 @@ export const ProductProvider = ({ children }) => {
   const [error, setError] = useState(null); // لتخزين الأخطاء إذا حدثت
   const [searchValue, setSearchValue] = useState(""); // لتخزين قيمة البحث
   const [pageNumber, setPageNumber] = useState(1); // لتخزين رقم الصفحة
-  const [pageSize, setPageSize] = useState(5); // لتخزين حجم الصفحة
+  const [pageSize, setPageSize] = useState(3); // لتخزين حجم الصفحة
   const [sortBy, setSortBy] = useState("name"); // لتحديد الحقل الذي سيتم التصفية حسبه (افتراضي هو "name")
   const [sortOrder, setSortOrder] = useState("asc"); // لتحديد ترتيب التصنيف (افتراضي هو "asc")
   const [totalPages, setTotalPages] = useState(1); // لتخزين إجمالي عدد الصفحات
