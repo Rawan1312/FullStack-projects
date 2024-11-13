@@ -2,6 +2,7 @@ import React from "react";
 
 import { Typography } from "@mui/material";
 import { Container } from "react-bootstrap";
+import "./Footerstyle.css";
 
 const Footer = () => {
   return (

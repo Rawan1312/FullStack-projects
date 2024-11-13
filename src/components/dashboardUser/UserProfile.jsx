@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { getUserById, updateUser } from "../../services/UserService";
-import NavBaruser from "../../layouts/header/NavBaruser";
+//import NavBaruser from "../../layouts/header/NavBaruser";
 
 const UserProfile = () => {
   const [user, setUser] = useState(null);
@@ -92,7 +92,7 @@ const UserProfile = () => {
 
   return (
     <Container maxWidth="md">
-      <NavBaruser />
+      {/* <NavBaruser /> */}
       <Paper elevation={3} sx={{ padding: 4, mt: 4 }}>
         <Box display="flex" flexDirection="column" alignItems="center">
           <Avatar
@@ -110,14 +110,7 @@ const UserProfile = () => {
                 fullWidth
                 margin="normal"
               />
-              {/* <TextField
-                label="Address"
-                name="address"
-                value={user?.address || ""}
-                onChange={handleChange}
-                fullWidth
-                margin="normal"
-              /> */}
+
               <Button
                 variant="contained"
                 color="primary"
@@ -137,16 +130,6 @@ const UserProfile = () => {
                   <Typography variant="subtitle1">
                     <strong>Email:</strong> {user?.email}
                   </Typography>
-                  {/* </Grid>
-                <Grid item xs={12} sm={6}>
-                  <Typography variant="subtitle1">
-                    <strong>Phone:</strong> {user?.phone || "N/A"}
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <Typography variant="subtitle1">
-                    <strong>Address:</strong> {user?.address || "N/A"}
-                  </Typography> */}
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <Typography variant="subtitle1">

@@ -1,82 +1,73 @@
-/* Hero Container */
 .hero-container {
-  background-image: url("https://i.pinimg.com/736x/d0/f6/56/d0f6569482ce4c30f996acd00c0ad1d0.jpg"); /* إضافة صورة خلفية */
-  background-size: cover; /* تغطية الصفحة بالكامل بالصورة */
-  background-position: center; /* محاذاة الصورة في منتصف الصفحة */
-  min-height: 100vh; /* التأكد من أن الخلفية تغطي الصفحة بالكامل */
-  width: 100%; /* تأكد من أن الحاوية تمتد على عرض الصفحة */
+  background-image: url("https://i.pinimg.com/736x/d0/f6/56/d0f6569482ce4c30f996acd00c0ad1d0.jpg"); 
+  background-size: cover; 
+  background-position: center;
+  min-height: 100vh; 
+  width: 100%; 
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute; /* تعيين الحاوية لتكون متراكبة على كامل الصفحة */
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   text-align: center;
-  color: #fff; /* تغيير النص إلى اللون الأبيض ليظهر بشكل أفضل على الخلفية */
+  color: #fff; 
   padding: 0;
   margin: 0;
 }
 
-/* Hero Content */
 .hero-content {
-  padding: 40px 30px; /* زيادة padding لإعطاء مزيد من المسافة حول المحتوى */
-  max-width: 600px; /* تعيين الحد الأقصى للعرض */
-  width: 100%; /* التأكد من أن العرض يتكيف مع مختلف الشاشات */
-  margin: 20px; /* إضافة هامش حول المحتوى */
-  backdrop-filter: blur(5px); /* إضافة تأثير ضبابي للخلفية */
-  border-radius: 16px; /* حواف دائرية */
+  padding: 40px 30px;
+  max-width: 600px; 
+  width: 100%; 
+  margin: 20px; 
+  backdrop-filter: blur(5px); 
+  border-radius: 16px; 
 }
 
-/* Hero Heading */
 .hero-content h1 {
-  font-size: 3rem; /* زيادة حجم الخط */
-  font-weight: 700; /* جعل الخط ثقيل */
+  font-size: 3rem; 
+  font-weight: 700; 
   margin-bottom: 20px;
 }
-
-/* Hero Description */
 .hero-content p {
-  font-size: 1.4rem; /* تغيير حجم الخط للوصف */
-  margin-bottom: 30px; /* إضافة مسافة بين الوصف والزر */
-  line-height: 1.6; /* تحسين التباعد بين الأسطر */
+  font-size: 1.4rem; 
+  margin-bottom: 30px; 
+  line-height: 1.6; 
 }
-
-/* Shop Now Button */
 .shop-now-btn {
-  background-color: #323232; /* اللون الرمادي الداكن */
+  background-color: #323232; 
   color: white;
   border: none;
-  padding: 15px 30px; /* إضافة مسافة حول النص */
-  font-size: 1.2rem; /* زيادة حجم الخط في الزر */
-  font-weight: 600; /* جعل الخط ثقيل */
-  border-radius: 10px; /* تقليل الزوايا */
+  padding: 15px 30px; 
+  font-size: 1.2rem; 
+  font-weight: 600; 
+  border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease; /* إضافة تأثيرات الانتقال */
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
-
 .shop-now-btn:hover {
-  background-color: #555; /* تغيير اللون عند التمرير */
-  transform: scale(1.05); /* تكبير الزر عند التمرير */
+  background-color: #555; 
+  transform: scale(1.05); 
 }
 
-/* تحسين التوافق مع الشاشات الصغيرة */
 @media screen and (max-width: 768px) {
   .hero-content {
-    padding: 30px; /* تقليل الحواف على الشاشات الصغيرة */
+    padding: 30px;
   }
 
   .hero-content h1 {
-    font-size: 2.2rem; /* تقليل حجم الخط */
+    font-size: 2.2rem; 
   }
 
   .hero-content p {
-    font-size: 1.2rem; /* تقليل حجم الخط */
+    font-size: 1.2rem; 
   }
 
   .shop-now-btn {
-    font-size: 1rem; /* تقليل حجم الخط في الزر */
-    padding: 10px 20px; /* تقليل المسافة حول النص */
+    font-size: 1rem;
+    padding: 10px 20px; 
   }
 }

@@ -6,7 +6,7 @@ const categoryBaseURL = "http://localhost:5125/api/v1/category";
 export const getAllProducts = async (
   searchValue = "",
   pageNumber = 1,
-  pageSize = 3,
+  pageSize = 6,
   sortBy = "name",
   sortOrder = "asc"
 ) => {
@@ -18,7 +18,7 @@ export const getAllProducts = async (
   console.log("searchValue ", searchValue);
 
   if (searchValue) {
-    console.log("search in service", searchValue);
+    // console.log("search in service", searchValue);
     params.append("SearchTerm", searchValue);
   }
 
@@ -78,31 +78,3 @@ export const deleteProduct = async (id) => {
     },
   });
 };
-
-// export const getProductById = async (id) => {
-//   const requestUrl = `${baseURL}/${id}`;
-//   console.log("Fetching product by ID:", requestUrl);
-
-//   try {
-//     const response = await axios.get(requestUrl);
-//     return response.data;
-//   } catch (error) {
-//     console.error("Error fetching product by ID: ", error);
-//     throw error; // Rethrow or handle appropriately
-//   }
-// };
-
-// // ** Get Category by ID **
-// export const getCategoryById = async (id) => {
-//   const requestUrl = `${categoryBaseURL}/${id}`;
-//   console.log("Fetching category by ID:", requestUrl);
-
-//   try {
-//     const response = await axios.get(requestUrl);
-//     return response.data; // إرجاع بيانات الفئة (Category)
-//   } catch (error) {
-//     const errorMessage = error.response?.data?.message || error.message;
-//     console.error("Error fetching category by ID:", errorMessage);
-//     throw new Error(`Failed to fetch category: ${errorMessage}`);
-//   }
-// };

@@ -5,27 +5,24 @@ import { getAllProducts } from "../services/productService";
 
 export const ProductContext = createContext();
 export const ProductProvider = ({ children }) => {
-  const [products, setProducts] = useState([]); // لتخزين قائمة المنتجات
-  const [isLoading, setIsLoading] = useState(false); // لتتبع حالة التحميل
-  const [error, setError] = useState(null); // لتخزين الأخطاء إذا حدثت
-  const [searchValue, setSearchValue] = useState(""); // لتخزين قيمة البحث
-  const [pageNumber, setPageNumber] = useState(1); // لتخزين رقم الصفحة
-  const [pageSize, setPageSize] = useState(3); // لتخزين حجم الصفحة
-  const [sortBy, setSortBy] = useState("name"); // لتحديد الحقل الذي سيتم التصفية حسبه (افتراضي هو "name")
-  const [sortOrder, setSortOrder] = useState("asc"); // لتحديد ترتيب التصنيف (افتراضي هو "asc")
-  const [totalPages, setTotalPages] = useState(1); // لتخزين إجمالي عدد الصفحات
-
-  // دالة لجلب المنتجات من الـ API بناءً على القيم المحددة
+  const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [searchValue, setSearchValue] = useState("");
+  const [pageNumber, setPageNumber] = useState(1);
+  const [pageSize, setPageSize] = useState(6);
+  const [sortBy, setSortBy] = useState("name");
+  const [sortOrder, setSortOrder] = useState("asc");
+  const [totalPages, setTotalPages] = useState(1);
   const fetchData = async (
-    searchValue = "",
+    searchValue,
     pageNumber = 1,
-    pageSize = 3,
+    pageSize = 6,
     sortBy = "name",
     sortOrder = "asc"
   ) => {
-    setIsLoading(true); // تعيين حالة التحميل إلى true
+    setIsLoading(true);
     try {
-      // استدعاء الخدمة للحصول على المنتجات
       const response = await getAllProducts(
         searchValue,
         pageNumber,
@@ -33,19 +30,14 @@ export const ProductProvider = ({ children }) => {
         sortBy,
         sortOrder
       );
-
-      // تحديث قائمة المنتجات وعدد الصفحات
       setProducts(response.product.items);
       setTotalPages(response.product.totalPages);
     } catch (error) {
-      // في حالة حدوث خطأ، يتم تخزين الرسالة في حالة الأخطاء
       setError(error.message);
     } finally {
-      setIsLoading(false); // تعيين حالة التحميل إلى false بعد الانتهاء
+      setIsLoading(false);
     }
   };
-
-  // استدعاء دالة fetchData عند تحديث القيم
   useEffect(() => {
     fetchData(searchValue, pageNumber, pageSize, sortBy, sortOrder);
   }, [searchValue, pageNumber, pageSize, sortBy, sortOrder]);
@@ -62,8 +54,8 @@ export const ProductProvider = ({ children }) => {
         setPageNumber,
         pageSize,
         setPageSize,
-        sortBy, // إضافة sortBy هنا
-        setSortBy, // إضافة setSortBy هنا
+        sortBy,
+        setSortBy,
         sortOrder,
         setSortOrder,
         totalPages,
@@ -74,7 +66,6 @@ export const ProductProvider = ({ children }) => {
   );
 };
 
-// تحديد نوع القيم التي سيتم تمريرها للـ Provider
 ProductProvider.propTypes = {
   children: PropTypes.node,
 };

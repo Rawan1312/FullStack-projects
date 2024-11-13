@@ -1,86 +1,25 @@
-// import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
-// import { useParams } from "react-router-dom";
-// import { getProductById } from "../services/productService";
-// import { Typography } from "@mui/material";
-// import { Container } from "react-bootstrap";
-
-// const ProductDetails = () => {
-//   const { id } = useParams(); // Capture product ID from URL
-//   const [product, setProduct] = useState(null);
-//   const [isLoading, setIsLoading] = useState(false);
-//   const [error, setError] = useState(null);
-
-//   useEffect(() => {
-//     const fetchProduct = async () => {
-//       setIsLoading(true);
-//       try {
-//         const response = await getProductById(id); // Fetch product by ID
-//         setProduct(response); // Set product directly from response
-//       } catch (error) {
-//         setError("Failed to load product details.");
-//         console.error(error);
-//       } finally {
-//         setIsLoading(false);
-//       }
-//     };
-
-//     fetchProduct();
-//   }, [id]);
-
-//   if (isLoading) {
-//     return <Typography variant="h4">Loading product details...</Typography>;
-//   }
-
-//   if (error) {
-//     return <Typography variant="h4">{error}</Typography>;
-//   }
-
-//   if (!product) return null;
-
-//   const { author, publicationYear, description, price, genre, imageUrl } =
-//     product;
-
-//   return (
-//     <Container>
-//       <Typography variant="h4" gutterBottom>
-//         Author: {author}
-//       </Typography>
-//       <Typography variant="h4" gutterBottom>
-//         Publication Year: {publicationYear}
-//       </Typography>
-//       <Typography variant="h3" gutterBottom>
-//         Description: {description}
-//       </Typography>
-//       <Typography variant="h5" gutterBottom>
-//         Price: ${price}
-//       </Typography>
-//       <Typography variant="h5" gutterBottom>
-//         Genre: {genre}
-//       </Typography>
-//       <img src={imageUrl} alt={product.name} style={{ width: "100%" }} />
-//     </Container>
-//   );
-// };
-
-// export default ProductDetails;import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import { Typography, Container, Button } from "@mui/material";
-import { getProductById } from "../services/productService"; // تأكد من استيراد الخدمة المناسبة
+import { getProductById } from "../services/productService";
 import { useEffect, useState } from "react";
 
 const ProductDetails = () => {
-  const { id } = useParams(); // Capture product ID from URL
+  const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
+  const handleNavigateToHomepage = () => {
+    navigate("/");
+  };
 
   useEffect(() => {
     const fetchProduct = async () => {
       setIsLoading(true);
       try {
-        const response = await getProductById(id); // Fetch product by ID
-        setProduct(response); // Set product directly from response
+        const response = await getProductById(id);
+        setProduct(response);
       } catch (error) {
         setError("Failed to load product details.");
         console.error(error);
@@ -168,13 +107,14 @@ const ProductDetails = () => {
             variant="contained"
             color="primary"
             style={{
-              backgroundColor: "#f50057",
+              backgroundColor: "#A04B3B",
               color: "white",
               padding: "10px 20px",
               marginTop: "20px",
             }}
+            onClick={handleNavigateToHomepage}
           >
-            Add to Cart
+            Back
           </Button>
         </div>
       </div>
