@@ -1,0 +1,98 @@
+/* Container for the cart page */
+.cart-container {
+  max-width: 900px; /* زيادة العرض */
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #ddd0c8; /* تغيير اللون إلى البيج */
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex; /* استخدام Flexbox لتوزيع العناصر عرضياً */
+  flex-direction: column; /* تغيير اتجاه العناصر إلى عمودي داخل الحاوية */
+  justify-content: flex-start; /* محاذاة العناصر للأعلى */
+  gap: 20px; /* زيادة المسافة بين العناصر */
+}
+
+/* Title */
+.title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #323232; /* تغيير اللون إلى الرمادي الداكن */
+  text-align: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Cart container */
+.cart {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  flex-grow: 1; /* يجعل الحاوية الرئيسية تأخذ أكبر مساحة عرض */
+}
+
+/* Products list */
+.products {
+  display: flex;
+  flex-direction: column; /* تأكد من أن العناصر تحت بعضها */
+  gap: 20px;
+  width: 100%;
+}
+
+/* Product individual item */
+.product {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+  width: 100%; /* اجعل المنتج يملأ العرض بالكامل */
+}
+
+/* Product image */
+.product-image {
+  width: 80px; /* زيادة حجم الصورة */
+  height: 80px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+/* Product info */
+.product-info {
+  flex-grow: 1;
+  color: #323232; /* تغيير اللون إلى الرمادي الداكن */
+}
+
+/* Remove button */
+.remove-button {
+  background-color: #ff6b6b; /* اللون الأحمر */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.remove-button:hover {
+  background-color: #e55a5a; /* تدرج اللون عند التمرير */
+}
+
+/* Clear cart button */
+.clear-cart-button {
+  background-color: #323232; /* اللون الرمادي الداكن */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.clear-cart-button:hover {
+  background-color: #555; /* اللون الرمادي الفاتح عند التمرير */
+}

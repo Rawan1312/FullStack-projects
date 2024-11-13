@@ -1,22 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 
 import Index from "./routes";
+
+// import { UserProvider } from "./context/UserContext";
 import { ProductProvider } from "./context/ProductsContext";
 import { CartProvider } from "./context/CartContext";
-// import AdminDashboard from "./components/Dashboard/AdminDashboard";
 
 const App = () => {
-  // const [users, setUsers] = useState(usersData);
-
   return (
+    // <UserProvider>
     <ProductProvider>
       <CartProvider>
-        {/* <SignUpForm setUsers={setUsers} />
-        <Users users={users} setUsers={setUsers} /> */}
-        {/* <AdminDashboard /> */}
         <Index />
       </CartProvider>
     </ProductProvider>
+
+    // {/* </UserProvider> */}
   );
 };
 

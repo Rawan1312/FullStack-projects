@@ -1,57 +1,54 @@
 // import React from "react";
 // import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 // import Home from "../pages/Home";
 // import Layout from "../layouts/Layout";
 // import About from "../pages/About";
-
 // import Products from "../components/products/Products";
 // import ProductDetails from "../pages/ProductDetails";
 // import Cart from "../components/Cart/Cart";
 // import Errorpage from "../pages/Error";
-// import SignUp from "../components/users/SignUp";
-// import SignIn from "../components/users/SignIn";
-
-// // import Profile from "../components/singin/Profile";
+// import SignUp from "../pages/SignUp";
+// import SignIn from "../pages/SignIn";
+// import ProductList from "../pages/ProductList";
+// import ProtectedRoute from "./ProtectedRoute";
+// import UserProfile from "../components/DashboardUser/UserProfile";
+// import UserDashboard from "../components/DashboardUser/UserDashboard";
+// import AdminDashboard from "../components/DashboardAdmin/AdminDashboard";
+// import AdminManageUsers from "../components/DashboardAdmin/AdminManageUsers";
 
 // const Index = () => {
 //   const router = createBrowserRouter([
 //     {
 //       path: "/",
-//       errorElement: <Errorpage />,
 //       element: <Layout />,
 //       children: [
+//         { path: "/", element: <Home /> },
+//         { path: "/about", element: <About /> },
+//         { path: "/products", element: <Products /> },
+//         { path: "/products/:id", element: <ProductDetails /> },
+//         { path: "/cart", element: <Cart /> },
+//         { path: "/signin", element: <SignIn /> },
+//         { path: "/signup", element: <SignUp /> },
+//         { path: "/productList", element: <ProductList /> },
+//       ],
+//     },
+//     {
+//       path: "/dashboard",
+//       element: <ProtectedRoute />,
+//       children: [
 //         {
-//           path: "/",
-//           element: <Home />,
+//           path: "user",
+//           element: <UserDashboard />,
+//           children: [{ path: "/profile", element: <UserProfile /> }],
 //         },
 //         {
-//           path: "/about",
-//           element: <About />,
+//           path: "admin",
+//           children: [
+//             { path: "/admin", element: <AdminDashboard /> },
+//             { path: "manage-users", element: <AdminManageUsers /> },
+//           ],
 //         },
-//         {
-//           path: "/products",
-//           element: <Products />,
-//         },
-//         {
-//           path: "/products/:id",
-//           element: <ProductDetails />,
-//         },
-//         {
-//           path: "/Cart",
-//           element: <Cart />,
-//         },
-//         {
-//           path: "/signin",
-//           element: <SignIn />,
-//         },
-//         {
-//           path: "/signup",
-//           element: <SignUp />,
-//         },
-//         // {
-//         //   path: "/profile",
-//         //   element: <Profile />,
-//         // },
 //       ],
 //     },
 //   ]);
@@ -60,120 +57,71 @@
 // };
 
 // export default Index;
-// import React from "react";
-// import { createBrowserRouter, RouterProvider } from "react-router-dom";
-// import Home from "../pages/Home";
-// import Layout from "../layouts/Layout";
-// import About from "../pages/About";
-// import Products from "../components/products/Products";
-// import ProductDetails from "../pages/ProductDetails";
-// import Cart from "../components/Cart/Cart";
-// import ProtectedRoute from "../routes/ProtectedRoute";
-
-// const Index = () => {
-//   const router = createBrowserRouter([
-//     {
-//       path: "/",
-//       element: <Layout />, // Main layout that wraps all the pages
-//       children: [
-//         {
-//           path: "/",
-//           element: <Home />, // Home page (accessible to all)
-//         },
-//         {
-//           path: "/about",
-//           element: <About />, // About page (accessible to all)
-//         },
-//         {
-//           path: "/products",
-//           element: <Products />, // Products page (accessible to all)
-//         },
-//         {
-//           path: "/products/:id",
-//           element: <ProductDetails />, // Product details page (accessible to all)
-//         },
-//         {
-//           path: "/Cart",
-//           // Protect the Cart route with the ProtectedRoute
-//           element: <ProtectedRoute />,
-//           children: [
-//             {
-//               path: "/Cart",
-//               element: <Cart />, // Cart page (accessible only to logged-in users)
-//             },
-//           ],
-//         },
-//       ],
-//     },
-//   ]);
-
-//   return <RouterProvider router={router} />; // Provide the router to the app
-// };
-
-// export default Index;
-
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Home from "../pages/Home";
 import Layout from "../layouts/Layout";
 import About from "../pages/About";
-import Products from "../components/products/Products";
 import ProductDetails from "../pages/ProductDetails";
-import Cart from "../components/Cart/Cart";
-import Errorpage from "../pages/Error";
-import SignUp from "../components/users/SignUp";
-import SignIn from "../components/users/SignIn";
-import ProductList from "../pages/ProductList";
 
-const Index = () => {
+import SignUp from "../pages/SignUp";
+import SignIn from "../pages/SignIn";
+import AdminDashboard from "../components/dashboardAdmin/AdminDashboard";
+import ProtectedRoute from "./ProtectedRoute";
+import UserProfile from "../components/dashboardUser/UserProfile";
+import Cart from "../components/Cart/Cart";
+import ProductList from "../pages/ProductList";
+// import AdminManageUsers from "../components/dashboardAdmin/AdminManageUsers";
+
+const Routes = () => {
   const router = createBrowserRouter([
     {
       path: "/",
-      errorElement: <Errorpage />,
       element: <Layout />,
       children: [
+        { path: "/", element: <Home /> },
+        { path: "/about", element: <About /> },
+        { path: "/products/:id", element: <ProductDetails /> },
+        { path: "/products", element: <ProductList /> },
+        { path: "cart", element: <Cart /> },
+        { path: "/signin", element: <SignIn /> },
+        { path: "/signup", element: <SignUp /> },
+
         {
-          path: "/",
-          element: <Home />,
+          path: "/user",
+          element: <ProtectedRoute registerrole="User" />,
+          children: [{ path: "profile", element: <UserProfile /> }],
         },
         {
-          path: "/about",
-          element: <About />,
-        },
-        {
-          path: "/products",
-          element: <Products />,
-        },
-        {
-          path: "/products/:id",
-          element: <ProductDetails />,
-        },
-        {
-          path: "/Cart",
-          element: <Cart />,
-        },
-        {
-          path: "/signin",
-          element: <SignIn />,
-        },
-        {
-          path: "/signup",
-          element: <SignUp />,
-        },
-        {
-          path: "/productList",
-          element: <ProductList />,
+          path: "/admin",
+          element: <ProtectedRoute registerrole="Admin" />,
+          children: [
+            { path: "dashboard", element: <AdminDashboard /> },
+            // { path: "users", element: <AdminManageUsers /> },
+          ],
         },
       ],
-    },
-    {
-      path: "/hometest",
-      element: <Home />,
     },
   ]);
 
   return <RouterProvider router={router} />;
 };
 
-export default Index;
+export default Routes;
+
+// {
+//   path: "/dashboard",
+//   children: [
+//     {
+//       path: "/dashboard",
+//       element: <ProtectedRoute registerrole="User" />,
+//       children: [
+//         { path: "", element: <UserDashboard /> },
+//         { path: "profile", element: <UserProfile /> },
+//         { path: "home", element: <Home /> },
+//         { path: "about", element: <About /> },
+//         { path: "products/:id", element: <ProductDetails /> },
+//         // { path: "cart", element: <Cart /> },
+//       ],
+//     },

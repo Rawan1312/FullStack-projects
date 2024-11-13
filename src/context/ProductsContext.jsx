@@ -3,10 +3,7 @@ import React, { useState, useEffect, createContext } from "react";
 import PropTypes from "prop-types";
 import { getAllProducts } from "../services/productService";
 
-// إنشاء الـ Context للمنتجات
 export const ProductContext = createContext();
-
-// توفير المنتجات في الـ Context لجميع المكونات
 export const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]); // لتخزين قائمة المنتجات
   const [isLoading, setIsLoading] = useState(false); // لتتبع حالة التحميل
@@ -22,7 +19,7 @@ export const ProductProvider = ({ children }) => {
   const fetchData = async (
     searchValue = "",
     pageNumber = 1,
-    pageSize = 5,
+    pageSize = 3,
     sortBy = "name",
     sortOrder = "asc"
   ) => {

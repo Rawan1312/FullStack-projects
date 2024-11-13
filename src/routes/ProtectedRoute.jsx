@@ -1,22 +1,19 @@
-// import React from "react";
-// import { Navigate, Outlet } from "react-router-dom"; // Importing Navigate and Outlet components from react-router-dom
+import React from "react";
+import { Navigate, Outlet } from "react-router-dom";
+;
 
-// // import useAuthContext from "../hooks/UseAuthContext"; // Importing a custom hook to get the login state
+export const ProtectedRoute = ({ registerrole }) => {
+  const token = localStorage.getItem("token");
+  const role = localStorage.getItem("role");
+  if (!token || role != registerrole) {
+    return <Navigate to="/signIn" replace />;
+  }
+  return <Outlet replace />;
+};
 
-// const ProtectedRoute = () => {
-//   // Using useAuthContext to get the login status (isLoggedIn) from context
-//   const { isLoggedIn } = useAuthContext();
+export default ProtectedRoute;
 
-//   // If the user is logged in, display the protected content using Outlet
-//   // Outlet is the placeholder where nested routes (protected content) will be displayed
-//   // If the user is not logged in, redirect them to the Sign In page
-//   return isLoggedIn ? (
-//     <Outlet /> // If the user is logged in, render the protected content
-//   ) : (
-//     // If the user is not logged in, redirect them to the "Sign In" page
-//     // "replace" ensures the current page is not added to the history stack
-//     <Navigate to="/signin" replace />
-//   );
-// };
-
-// export default ProtectedRoute; // Exporting ProtectedRoute to be used in other parts of the app
+//first is call api
+//  and check is login or not
+//if login is going in outlet{router is showing the website}
+//if not login well going in page signIn

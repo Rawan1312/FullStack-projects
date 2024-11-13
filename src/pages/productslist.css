@@ -1,0 +1,92 @@
+/* صفحة المنتجات */
+.product-list-container {
+  padding: 20px;
+  background-color: #f7f7f7;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #1976d2;
+}
+
+.search-sort-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* شبكة المنتجات باستخدام Flexbox */
+.product-grid {
+  display: flex;
+  flex-wrap: wrap; /* لضمان أن العناصر تتوزع بشكل جيد في الصفوف */
+  gap: 5px; /* تقليل المسافة بين العناصر إلى 5px */
+  margin-top: 20px;
+  justify-content: space-between; /* توزيع العناصر بشكل متساوٍ */
+}
+
+/* عناصر المنتج */
+.product-item {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  width: 33%; /* تعديل العرض ليكون 33% بدلاً من 31% */
+  transition: transform 0.3s ease;
+}
+
+.product-item:hover {
+  transform: scale(1.05);
+}
+
+.product-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.product-item h3 {
+  color: #1976d2;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.product-item p {
+  color: #666;
+  font-size: 1rem;
+  margin: 10px 0;
+}
+
+/* زر "إضافة إلى السلة" */
+.product-item button {
+  background-color: #f50057;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.product-item button:hover {
+  background-color: #d50042;
+}
+
+/* تحسين التوافق مع الشاشات الصغيرة */
+@media screen and (max-width: 768px) {
+  .product-grid {
+    justify-content: center; /* تصغير المسافة بين العناصر على الشاشات الصغيرة */
+  }
+
+  .product-item {
+    width: 45%; /* تقليل عرض المنتج ليظهر بشكل جيد على الشاشات الصغيرة */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .product-item {
+    width: 100%; /* عرض المنتج بالكامل على الشاشات الأصغر */
+  }
+}
