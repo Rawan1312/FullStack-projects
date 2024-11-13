@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const baseURL = "http://localhost:5125/api/v1/products";
-const categoryBaseURL = "http://localhost:5125/api/v1/category";
+const baseURL = " https://backend-837l.onrender.com/api/v1/products";
 
 export const getAllProducts = async (
   searchValue = "",

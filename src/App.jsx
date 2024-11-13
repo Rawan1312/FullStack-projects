@@ -6,13 +6,11 @@ import { CartProvider } from "./context/CartContext";
 
 const App = () => {
   return (
-  
     <ProductProvider>
       <CartProvider>
         <Index />
       </CartProvider>
     </ProductProvider>
-
   );
 };
 

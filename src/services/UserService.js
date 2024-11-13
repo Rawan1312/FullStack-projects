@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const baseURL = "http://localhost:5125/api/v1/users";
-const authURL = "http://localhost:5125/api/v1/auth";
+const baseURL = "https://backend-837l.onrender.com/api/v1/users";
+const authURL = "https://backend-837l.onrender.com/api/v1/auth";
 
 export const createUser = async (userData) => {
   try {

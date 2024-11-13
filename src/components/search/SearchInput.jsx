@@ -7,12 +7,11 @@ const SearchInput = () => {
   const { setSearchValue } = useContext(ProductContext);
   const [inputValue, setInputValue] = useState("");
 
-  
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       setSearchValue(inputValue);
-    }, 1000); 
-    return () => clearTimeout(timeoutId); 
+    }, 300);
+    return () => clearTimeout(timeoutId);
   }, [inputValue, setSearchValue]);
 
   const handleSearchChange = (event) => {

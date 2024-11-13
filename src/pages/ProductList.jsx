@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 
+import "./productlist.css";
 import { ProductContext } from "../context/ProductsContext";
 import Product from "../components/products/Product";
 import PaginationProducts from "../components/pagination/PaginationProducts";
@@ -27,7 +28,10 @@ const ProductList = () => {
           <Product product={product} />
         </div>
       ))}
-      <PaginationProducts />
+      {/* <PaginationProducts /> */}
+      <div className="pagination-container">
+        <PaginationProducts />
+      </div>
     </div>
   );
 };

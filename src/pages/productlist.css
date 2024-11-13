@@ -1,0 +1,18 @@
+.product-grid {
+  display: flex;
+  flex-wrap: wrap; /* للسماح بانتقال المنتجات إلى السطر التالي عند الحاجة */
+  justify-content: center; /* لتوسيط المنتجات في المنتصف */
+  gap: 16px; /* المسافة بين المنتجات */
+  margin-bottom: 40px; /* مسافة بين الشبكة و Pagination */
+}
+
+.product-item {
+  width: 200px; /* عرض المنتج */
+}
+
+/* تخصيص المسافة بين Pagination والمنتجات */
+.pagination-container {
+  margin-top: 40px; /* زيادة المسافة بين المنتجات و Pagination */
+  display: flex;
+  justify-content: center; /* لتوسيط Pagination */
+}
