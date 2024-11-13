@@ -11,7 +11,7 @@ const ProductDetails = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const handleNavigateToHomepage = () => {
-    navigate("/");
+    navigate("/products");
   };
 
   useEffect(() => {

@@ -28,10 +28,7 @@ const ProductList = () => {
           <Product product={product} />
         </div>
       ))}
-      {/* <PaginationProducts /> */}
-      <div className="pagination-container">
-        <PaginationProducts />
-      </div>
+      <PaginationProducts />
     </div>
   );
 };
