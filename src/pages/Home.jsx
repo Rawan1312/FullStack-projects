@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./HomeStyle.css";
+import "./Homestyle.css";
 
 import { useNavigate } from "react-router-dom";
 
