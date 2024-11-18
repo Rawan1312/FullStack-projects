@@ -9,7 +9,6 @@ import ProductDetails from "../pages/ProductDetails";
 
 import SignUp from "../pages/SignUp";
 import SignIn from "../pages/SignIn";
-import AdminDashboard from "../components/dashboardAdmin/AdminDashboard";
 import ProtectedRoute from "./ProtectedRoute";
 import UserProfile from "../components/dashboardUser/UserProfile";
 import Cart from "../components/Cart/Cart";
@@ -33,11 +32,6 @@ const Routes = () => {
           path: "/user",
           element: <ProtectedRoute registerrole="User" />,
           children: [{ path: "profile", element: <UserProfile /> }],
-        },
-        {
-          path: "/admin",
-          element: <ProtectedRoute registerrole="Admin" />,
-          children: [{ path: "dashboard", element: <AdminDashboard /> }],
         },
       ],
     },
