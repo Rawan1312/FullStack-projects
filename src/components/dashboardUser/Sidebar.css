@@ -1,0 +1,30 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -250px; /* الشريط الجانبي يبدأ مخفي */
+  width: 250px;
+  height: 100%;
+  background-color: #f1f1f1;
+  color: #333333;
+  transition: right 0.3s ease;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.sidebar.open {
+  right: 0;
+}
+
+.sidebar-link {
+  color: #333333;
+  text-decoration: none;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-link:hover {
+  background-color: #e0e0e0;
+  padding: 5px;
+  border-radius: 5px;
+}

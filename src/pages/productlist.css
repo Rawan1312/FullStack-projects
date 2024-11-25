@@ -1,18 +1,35 @@
-.product-grid {
+/* .product-grid {
   display: flex;
-  flex-wrap: wrap; /* للسماح بانتقال المنتجات إلى السطر التالي عند الحاجة */
-  justify-content: center; /* لتوسيط المنتجات في المنتصف */
-  gap: 16px; /* المسافة بين المنتجات */
-  margin-bottom: 40px; /* مسافة بين الشبكة و Pagination */
+  flex-wrap: wrap;
+  justify-content: center; 
+  gap: 16px; 
+  margin-bottom: 40px; 
 }
 
 .product-item {
-  width: 200px; /* عرض المنتج */
+  width: 200px;
 }
 
-/* تخصيص المسافة بين Pagination والمنتجات */
+
 .pagination-container {
-  margin-top: 40px; /* زيادة المسافة بين المنتجات و Pagination */
+  margin-top: 40px; 
   display: flex;
-  justify-content: center; /* لتوسيط Pagination */
+  justify-content: center; 
+} */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px; /* مسافة بين الشبكة والترقيم */
+}
+
+.product-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

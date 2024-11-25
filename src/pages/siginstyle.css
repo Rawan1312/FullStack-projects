@@ -1,11 +1,12 @@
 /* حاوية النموذج */
 .form-box {
   max-width: 500px;
-  background: #ddd0c8;
+  background: #c9b9a6; /* خلفية دافئة بلون مشابه للون السابق */
   overflow: hidden;
   border-radius: 16px;
-  color: #323232;
+  color: #2a2a2a; /* نص بلون داكن للوضوح */
   margin: auto;
+  border: 4px solid #a88d7a; /* حدود بلون دافئ */
 }
 
 /* تصميم النموذج */
@@ -22,13 +23,13 @@
   font-weight: bold;
   font-size: 1.8rem;
   margin: 0;
-  color: #323232;
+  color: #3a3a3a; /* لون داكن لسهولة القراءة */
 }
 
 /* العنوان الفرعي */
 .subtitle {
   font-size: 1.1rem;
-  color: #666;
+  color: #3a3a3a; /* لون داكن مناسب */
   margin: 0;
 }
 
@@ -47,10 +48,10 @@
   border: none; /* إزالة الحدود الافتراضية */
   outline: none; /* إزالة التركيز الافتراضي */
   width: 100%;
-  padding: 12px 18px; /* زاد التباعد الداخلي */
+  padding: 12px 18px; /* زيادة التباعد الداخلي */
   font-size: 1rem;
-  border-bottom: 1px solid #ccc; /* إضافة حدود تحت الحقل لتحديد الحواف */
-  color: #323232;
+  border-bottom: 1px solid #a88d7a; /* حدود بلون دافئ */
+  color: #2a2a2a; /* نص داكن */
   margin-bottom: 15px; /* إضافة مساحة بين الحقول */
   box-sizing: border-box; /* ضمان حساب الحواف والمسافات بشكل صحيح */
   transition: border-color 0.3s ease; /* إضافة تأثير عند التركيز */
@@ -58,7 +59,7 @@
 
 /* تأثير عند التركيز على الحقل */
 .input:focus {
-  border-bottom: 1px solid #323232;
+  border-bottom: 1px solid #7f6a52; /* تغيير اللون إلى درجة أغمق */
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -66,25 +67,25 @@
 .form-section {
   padding: 18px;
   font-size: 0.9rem;
-  background-color: #f0e8e3;
+  background-color: #f1e1cd; /* خلفية فاتحة */
   color: #666;
 }
 
 .form-section a {
-  color: #323232;
+  color: #2a2a2a; /* لون الرابط داكن */
   font-weight: bold;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .form-section a:hover {
-  color: #555;
+  color: #7f6a52; /* تغيير اللون عند المرور فوق الرابط */
 }
 
 /* زر النموذج */
 .form-button {
-  background-color: #323232;
-  color: #ddd0c8;
+  background-color: #a88d7a; /* استخدام اللون الداكن للزر */
+  color: #fff;
   border: none;
   border-radius: 24px;
   padding: 16px 24px;
@@ -96,8 +97,8 @@
 }
 
 .form-button:hover {
-  background-color: #555;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  background-color: #7f6a52; /* تغيير اللون عند التمرير فوق الزر */
+  box-shadow: 0 3px 8px rgba(232, 224, 224, 0.15);
 }
 
 /* التنبيه عند الخطأ */

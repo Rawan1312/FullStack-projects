@@ -87,19 +87,43 @@ export const updateUser = async (id, userData) => {
     throw error;
   }
 };
+
+// export const SignInUser = async (email, password) => {
+//   const user = {
+//     Email: email,
+//     Password: password,
+//   };
+//   try {
+//     // const token = localStorage.getItem("token");
+//     const response = await axios.post(`${authURL}/login`, user, {
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//     });
+//     console.log(response.data);
+//     return response.data;
+//   } catch (error) {
+//     console.error("Error logging in:", error);
+//     throw error;
+//   }
+// };
 export const SignInUser = async (email, password) => {
   const user = {
     Email: email,
     Password: password,
   };
   try {
-    // const token = localStorage.getItem("token");
     const response = await axios.post(`${authURL}/login`, user, {
       headers: {
         "Content-Type": "application/json",
       },
     });
     console.log(response.data);
+
+    // Save the token or user info to localStorage
+    localStorage.setItem("token", response.data.token);
+    localStorage.setItem("user", JSON.stringify(response.data.user));
+
     return response.data;
   } catch (error) {
     console.error("Error logging in:", error);

@@ -59,21 +59,70 @@ export const createProduct = async (productData) => {
   return response.data;
 };
 
-export const updateProduct = async (id, productData) => {
-  const token = localStorage.getItem("token");
-  const response = await axios.put(`${baseURL}/${id}`, productData, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
-  return response.data;
+// export const updateProduct = async (id, productData) => {
+//   const token = localStorage.getItem("token");
+//   const response = await axios.put(`${baseURL}/${id}`, productData, {
+//     headers: {
+//       Authorization: `Bearer ${token}`,
+//     },
+//   });
+//   return response.data;
+// };
+
+// export const deleteProduct = async (id) => {
+//   const token = localStorage.getItem("token");
+//   await axios.delete(`${baseURL}/${id}`, {
+//     headers: {
+//       Authorization: `Bearer ${token}`,
+//     },
+//   });
+// };
+
+// دالة حذف المنتج
+export const deleteProduct = async (id) => {
+  try {
+    const token = localStorage.getItem("token");
+    const response = await axios.delete(`${baseURL}/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    console.log("Product deleted successfully", response.data);
+    return response.data;
+  } catch (error) {
+    console.error("Error deleting product", error);
+    throw error;
+  }
 };
 
-export const deleteProduct = async (id) => {
-  const token = localStorage.getItem("token");
-  await axios.delete(`${baseURL}/${id}`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
+export const updateProduct = async (
+  id,
+  originalProductData,
+  updatedProductData
+) => {
+  try {
+    const token = localStorage.getItem("token"); // الحصول على التوكن
+
+    const response = await axios.put(
+      `https://backend-837l.onrender.com/api/v1/products/${id}`, // تأكد أن المسار صحيح
+      {
+        ...originalProductData, // القيم الأصلية
+        ...updatedProductData, // القيم المعدلة
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, // إرسال التوكن مع الطلب
+        },
+      }
+    );
+
+    console.log("Product updated successfully:", response.data);
+    return response.data;
+  } catch (error) {
+    console.error(
+      "Error updating product:",
+      error.response?.data || error.message
+    );
+    throw error;
+  }
 };

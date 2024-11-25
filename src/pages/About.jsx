@@ -20,9 +20,27 @@
 // };
 
 // export default About;
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-const About = () => {
+const AboutUs = () => {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setVisible(true);
+      } else {
+        setVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div
       style={{
@@ -35,15 +53,16 @@ const About = () => {
         margin: "40px auto",
         textAlign: "center",
       }}
+      className={`section ${visible ? "visible" : ""}`}
     >
       <h2 style={{ color: "#597386", marginBottom: "15px" }}>About Us</h2>
-      <p style={{ lineHeight: "1.6", fontSize: "1.1em" }}>
-        Welcome to <strong>The Book Nook</strong>, your go-to bookstore for all
-        kinds of books! Whether you're looking for the latest bestsellers or
-        timeless classics, we've got something for every reader.
+      <p>
+        At NovelLand, we believe in providing a wide range of books for all
+        readers. Whether you're into fiction, non-fiction, or academic
+        literature, we've got something for you.
       </p>
     </div>
   );
 };
 
-export default About;
+export default AboutUs;

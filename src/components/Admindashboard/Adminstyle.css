@@ -1,0 +1,42 @@
+/* .card-img-top {
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-footer {
+  background-color: #f8f9fa;
+  border-top: 1px solid #ddd;
+}
+.custom-container {
+  max-width: 800px; /* حدد العرض الذي تريده */
+/* margin-left: 0; /* اجعلها تبدأ من اليسار */
+/* margin-right: auto; لتجنب الفراغ على اليمين */
+/* } */
+.container-fluid {
+  padding-left: 240px; /* اترك مساحة للشريط الجانبي */
+}
+
+.product-box {
+  min-height: 100px; /* زيادة الطول للبوكس */
+  width: 100%; /* تأكد من استخدام العرض الكامل للصف */
+  align-items: center; /* تأكد من أن المحتويات كلها في خط أفقي */
+}
+
+.product-box img {
+  width: 100px; /* تكبير صورة المنتج */
+  height: 100px;
+  object-fit: cover;
+}
+
+.product-box .d-flex {
+  flex-wrap: nowrap; /* اجعل الأزرار دائمًا بجانب بعضها */
+}
+
+.product-box button {
+  white-space: nowrap; /* منع الأزرار من النزول لخط جديد */
+}

@@ -22,12 +22,23 @@ const ProductList = () => {
   }
 
   return (
-    <div className="product-grid">
-      {products.map((product) => (
-        <div className="product-item" key={product.id}>
-          <Product product={product} />
-        </div>
-      ))}
+    // <div className="product-grid">
+    //   {products.map((product) => (
+    //     <div className="product-item" key={product.id}>
+    //       <Product product={product} />
+    //     </div>
+    //   ))}
+    //   <PaginationProducts />
+    // </div>
+
+    <div>
+      <div className="product-grid">
+        {products.map((product) => (
+          <div className="product-item" key={product.id}>
+            <Product product={product} />
+          </div>
+        ))}
+      </div>
       <PaginationProducts />
     </div>
   );

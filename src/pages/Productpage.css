@@ -1,0 +1,7 @@
+.search-sort-container {
+  display: flex;
+  align-items: center; /* محاذاة عمودية للعناصر */
+  justify-content: flex-start; /* تأكد من ترتيب العناصر بشكل أفقي */
+  gap: 50px; /* زيادة المسافة بين Search و Sort */
+  margin-bottom: 20px; /* مسافة أسفل الحاوية */
+}
