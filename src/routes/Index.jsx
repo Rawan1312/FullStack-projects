@@ -13,9 +13,8 @@ import UserProfile from "../components/dashboardUser/UserProfile";
 import Cart from "../components/Cart/Cart";
 import ProductPage from "../pages/ProductPage";
 import AboutUs from "../pages/About";
-import UserDashboard from "../components/dashboardUser/Dashboard.JSX";
+import UserDashboard from "../components/dashboardUser/Dashboard.jsx";
 import AdminDashboard from "../components/Admindashboard/AdminDashboard";
-// import UsersList from "../components/Admindashboard/UsersList";
 import AdminManageProducts from "../components/Admindashboard/AdminManageProducts";
 
 const Routes = () => {
